@@ -1,12 +1,16 @@
-keyword=raw_input('Enter the product you want to search:')
+"""Script to get url for search based on user input from user
+"""
 
-def search_url(keyword):
-	
-	 keyword.replace(" ",'+')
+base_url = "https://www.amazon.in/s/field-keywords="
 
-	 Base_url ='https://www.amazon.com/s/ref=nb_sb_noss_2?keywords='
-	 return Base_url + keyword
-	
+def get_search_url(keyword):
+    """(str) -> str
+    """
+    parsed_keyword = keyword.replace(" ", '+')
+    print base_url+parsed_keyword
+    return base_url+parsed_keyword
 
-search_url(keyword)
 
+if __name__ == '__main__':
+    keyword = raw_input("Enter the keyword\n")
+    print get_search_url(str(keyword))
